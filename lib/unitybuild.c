@@ -11,5 +11,6 @@
 #include "amxplugin.c"
 #include "sampgdk.c"
 #include "ugmp.c"
+#include "getch.c"
 #include "main.c"
 // clang-format on
