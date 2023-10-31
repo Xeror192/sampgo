@@ -2264,25 +2264,26 @@ func CreateObject(modelid int, x, y, z, rX, rY, rZ, DrawDistance float32) int {
 
 // For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
 func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance float32, DrawDistance float32, areaId int, priority int) int {
-	native, _ := findNative("CreateDynamicObject")
-	return int(invokeNative(
-		native,
-		"iffffffiiiffii",
-		C.int(modelid),
-		C.float(x),
-		C.float(y),
-		C.float(z),
-		C.float(rX),
-		C.float(rY),
-		C.float(rZ),
-		C.int(worldId),
-		C.int(interiorId),
-		C.int(playerId),
-		C.float(StreamDistance),
-		C.float(DrawDistance),
-		C.int(areaId),
-		C.int(priority),
-	))
+	//native, _ := findNative("CreateDynamicObject")
+	//return invokeNative(
+	//	native,
+	//	"iffffffiiiffii",
+	//	C.int(modelid),
+	//	C.float(x),
+	//	C.float(y),
+	//	C.float(z),
+	//	C.float(rX),
+	//	C.float(rY),
+	//	C.float(rZ),
+	//	C.int(worldId),
+	//	C.int(interiorId),
+	//	C.int(playerId),
+	//	C.float(StreamDistance),
+	//	C.float(DrawDistance),
+	//	C.int(areaId),
+	//	C.int(priority),
+	//)
+	return int(C.CreateDynamicObject(C.int(modelid), C.float(x), C.float(y), C.float(z), C.float(rX), C.float(rY), C.float(rZ), C.float(DrawDistance)))
 
 	//return int(C.CreateDynamicObject(C.int(modelid), C.float(x), C.float(y), C.float(z), C.float(rX), C.float(rY), C.float(rZ), C.int(worldId), C.int(interiorId), C.int(playerId), C.float(StreamDistance), C.float(DrawDistance), C.int(areaId), C.int(priority)))
 }
