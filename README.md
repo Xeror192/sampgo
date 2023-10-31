@@ -15,7 +15,7 @@ Or check the wiki for more information.
 
 ## Installation
 ```
-go get -u github.com/sampgo/sampgo
+go get -u github.com/Xeror192/sampgo
 ```
 
 ## Credits
