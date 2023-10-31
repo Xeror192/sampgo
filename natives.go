@@ -2269,7 +2269,7 @@ func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId, interiorId, 
 		return 0
 	}
 
-	return invokeNative(
+	return invokeNativeTest(
 		native,
 		"iffffffiiiffii",
 		C.int(modelid),
