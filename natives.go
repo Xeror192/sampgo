@@ -2269,25 +2269,25 @@ func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId, interiorId, 
 		return 0
 	}
 
-	//return invokeNative(
-	//	native,
-	//	"iffffffiiiffii",
-	//	C.int(modelid),
-	//	C.float(x),
-	//	C.float(y),
-	//	C.float(z),
-	//	C.float(rX),
-	//	C.float(rY),
-	//	C.float(rZ),
-	//	C.int(worldId),
-	//	C.int(interiorId),
-	//	C.int(playerId),
-	//	C.float(StreamDistance),
-	//	C.float(DrawDistance),
-	//	C.int(areaId),
-	//	C.int(priority),
-	//)
-	return int(C.CreateDynamicObject(C.int(modelid), C.float(x), C.float(y), C.float(z), C.float(rX), C.float(rY), C.float(rZ), C.float(DrawDistance)))
+	return invokeNative(
+		native,
+		"iffffffiiiffii",
+		C.int(modelid),
+		C.float(x),
+		C.float(y),
+		C.float(z),
+		C.float(rX),
+		C.float(rY),
+		C.float(rZ),
+		C.int(worldId),
+		C.int(interiorId),
+		C.int(playerId),
+		C.float(StreamDistance),
+		C.float(DrawDistance),
+		C.int(areaId),
+		C.int(priority),
+	)
+	//return int(C.CreateDynamicObject(C.int(modelid), C.float(x), C.float(y), C.float(z), C.float(rX), C.float(rY), C.float(rZ), C.float(DrawDistance)))
 
 	//return int(C.CreateDynamicObject(C.int(modelid), C.float(x), C.float(y), C.float(z), C.float(rX), C.float(rY), C.float(rZ), C.int(worldId), C.int(interiorId), C.int(playerId), C.float(StreamDistance), C.float(DrawDistance), C.int(areaId), C.int(priority)))
 }
