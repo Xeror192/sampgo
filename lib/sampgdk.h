@@ -4554,6 +4554,12 @@ SAMPGDK_NATIVE(int, CreateObject(int modelid, float x, float y, float z, float r
 
 /**
  * \ingroup natives
+ * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateObject on SA-MP Wiki</a>
+ */
+SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, float DrawDistance));
+
+/**
+ * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/AttachObjectToVehicle">AttachObjectToVehicle on SA-MP Wiki</a>
  */
 SAMPGDK_NATIVE(bool, AttachObjectToVehicle(int objectid, int vehicleid, float fOffsetX, float fOffsetY, float fOffsetZ, float fRotX, float fRotY, float fRotZ));
@@ -4785,7 +4791,6 @@ inline int CreateObject(int modelid, float x, float y, float z, float rX, float 
     return sampgdk_CreateObject(modelid, x, y, z, rX, rY, rZ, DrawDistance);
 }
 
-
 inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, float DrawDistance = 0.0)
 {
     return sampgdk_CreateObject(modelid, x, y, z, rX, rY, rZ, DrawDistance);
@@ -4982,6 +4987,9 @@ inline bool SetObjectsDefaultCameraCol(bool disable)
 
 #undef CreateObject
 #define CreateObject sampgdk_CreateObject
+
+#undef CreateDynamicObject
+#define CreateDynamicObject sampgdk_CreateDynamicObject
 
 #undef AttachObjectToVehicle
 #define AttachObjectToVehicle sampgdk_AttachObjectToVehicle
