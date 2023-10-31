@@ -5,7 +5,7 @@ name = "go"
 enabled = true
 
   [analyzers.meta]
-  import_paths = ["github.com/sampgo/sampgo"]
+  import_paths = ["github.com/Xeror192/sampgo"]
 
 [[transformers]]
 name = "gofmt"
