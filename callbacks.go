@@ -113,6 +113,20 @@ func onGameModeExit() bool {
 	return true
 }
 
+//export onPlayerConnect
+func onPlayerConnect(playerid C.int) bool {
+	evt, ok := events["playerConnect"]
+	if !ok {
+		return false
+	}
+
+	fn, ok := evt.Handler.(func(Player) bool)
+	if !ok {
+		return false
+	}
+	return fn(Player{ID: int(playerid)})
+}
+
 //export onPlayerDisconnect
 func onPlayerDisconnect(playerid C.int, reason C.int) bool {
 	evt, ok := events["playerDisconnect"]
