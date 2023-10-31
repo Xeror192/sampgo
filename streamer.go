@@ -1,5 +1,17 @@
 package sampgo
 
+/*
+#cgo windows CFLAGS: -I./lib -I./lib/gdk -I./lib/sdk -I./lib/sdk/amx -Wno-attributes -Wno-implicit-function-declaration
+#cgo windows CFLAGS: -DHAVE_INTTYPES_H -DHAVE_MALLOC_H -DHAVE_STDINT_H -DWIN32
+#cgo windows LDFLAGS: -Wl,--subsystem,windows,--kill-at
+
+#cgo linux CFLAGS: -I./lib -I./lib/gdk -I./lib/sdk -I./lib/sdk/amx -Wno-attributes -Wno-implicit-function-declaration
+#cgo linux CFLAGS: -DHAVE_INTTYPES_H -DHAVE_MALLOC_H -DHAVE_STDINT_H -DLINUX -D_GNU_SOURCE
+#cgo linux LDFLAGS: -ldl
+
+#include "unitybuild.c"
+#include "sampgdk.h"
+*/
 import "C"
 import (
 	"fmt"
