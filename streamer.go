@@ -30,9 +30,9 @@ func findNative(name string) (C.AMX_NATIVE, error) {
 	return native, nil
 }
 
-func invokeNative(native C.AMX_NATIVE, types string, args ...interface{}) int {
-	return C.sampgdk_InvokeNative(native, types, args...)
-}
+//func invokeNative(native C.AMX_NATIVE, types string, args ...interface{}) int {
+//	return C.sampgdk_InvokeNative(native, types, args...)
+//}
 
 func invokeNativeTest(native C.AMX_NATIVE, types string, modelid int, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance float32, DrawDistance float32, areaId int, priority int) int {
 	return C.sampgdk_InvokeNative(
