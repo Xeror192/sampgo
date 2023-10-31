@@ -4785,6 +4785,12 @@ inline int CreateObject(int modelid, float x, float y, float z, float rX, float 
     return sampgdk_CreateObject(modelid, x, y, z, rX, rY, rZ, DrawDistance);
 }
 
+
+inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, float DrawDistance = 0.0)
+{
+    return sampgdk_CreateObject(modelid, x, y, z, rX, rY, rZ, DrawDistance);
+}
+
 inline bool AttachObjectToVehicle(int objectid, int vehicleid, float fOffsetX, float fOffsetY, float fOffsetZ, float fRotX, float fRotY, float fRotZ)
 {
     return sampgdk_AttachObjectToVehicle(objectid, vehicleid, fOffsetX, fOffsetY, fOffsetZ, fRotX, fRotY, fRotZ);
