@@ -2,6 +2,7 @@ package sampgo
 
 import (
 	"fmt"
+	"github.com/gelsrc/go-charset"
 )
 
 // Player implements OO players.
@@ -44,8 +45,9 @@ func (p *Player) SendMessage(colour string, msg string) error {
 	if len(msg) > 144 {
 		return fmt.Errorf("message too long")
 	}
+	win := charset.Cp1251RunesToBytes([]rune(msg))
 
-	if !SendClientMessageCustom(p.ID, colour, msg) {
+	if !SendClientMessageCustom(p.ID, colour, string(win)) {
 		return fmt.Errorf("the player is not connected")
 	}
 	return nil
