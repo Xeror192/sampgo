@@ -1355,7 +1355,7 @@ func GetVehicleModelInfo(model, infotype int, X, Y, Z *float32) bool {
 }
 
 // For documentation, please visit https://open.mp/docs/scripting/functions/SendClientMessage
-func SendClientMessage(playerid int, color int32, message string) bool {
+func SendClientMessage(playerid, color int, message string) bool {
 	csmessage := C.CString(message)
 	defer C.free(unsafe.Pointer(csmessage))
 	return bool(C.SendClientMessage(C.int(playerid), C.int(color), C.nonConstToConst(csmessage)))
