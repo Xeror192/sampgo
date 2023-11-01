@@ -7223,12 +7223,12 @@ SAMPGDK_NATIVE(int, CreateObject(int modelid, float x, float y, float z, float r
   return (int)(retval);
 }
 
-SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, float DrawDistance)) {
+SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, worldId int, interiorId int, playerId int, float StreamDistance, float DrawDistance, areaId int, priority int)) {
   static AMX_NATIVE native;
   cell retval;
   cell params[9];
-  sampgdk_log_debug("CreateObject(%d, %f, %f, %f, %f, %f, %f, %f)", modelid, x, y, z, rX, rY, rZ, DrawDistance);
-  native = sampgdk_native_find_flexible("CreateObject", native);
+  sampgdk_log_debug("CreateDynamicObject(%d, %f, %f, %f, %f, %f, %f, %d, %d, %d, %f, %f, %d, %d)", modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
+  native = sampgdk_native_find_flexible("CreateDynamicObject", native);
   params[0] = 8 * sizeof(cell);
   params[1] = (cell)modelid;
   params[2] = amx_ftoc(x);
@@ -7237,7 +7237,13 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
   params[5] = amx_ftoc(rX);
   params[6] = amx_ftoc(rY);
   params[7] = amx_ftoc(rZ);
-  params[8] = amx_ftoc(DrawDistance);
+  params[8] = amx_ftoc(worldId);
+  params[9] = amx_ftoc(interiorId);
+  params[10] = amx_ftoc(playerId);
+  params[11] = amx_ftoc(StreamDistance);
+  params[12] = amx_ftoc(DrawDistance);
+  params[13] = amx_ftoc(areaId);
+  params[14] = amx_ftoc(priority);
   retval = native(sampgdk_fakeamx_amx(), params);
   return (int)(retval);
 }
