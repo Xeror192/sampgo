@@ -2292,6 +2292,24 @@ func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId, interiorId, 
 	))
 }
 
+// For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
+func CreateDynamicMapIcon(x float32, y float32, z float32, iconType int, color int, worldId int, interiorId int, playerId int, StreamDistance float32, style int, areaId int, priority int) int {
+	return int(C.CreateDynamicMapIcon(
+		C.float(x),
+		C.float(y),
+		C.float(z),
+		C.int(iconType),
+		C.int(color),
+		C.int(worldId),
+		C.int(interiorId),
+		C.int(playerId),
+		C.float(StreamDistance),
+		C.int(style),
+		C.int(areaId),
+		C.int(priority),
+	))
+}
+
 // For documentation, please visit https://open.mp/docs/scripting/functions/AttachObjectToVehicle
 func AttachObjectToVehicle(objectid, vehicleid int, fOffsetX, fOffsetY, fOffsetZ, fRotX, fRotY, fRotZ float32) bool {
 	return bool(C.AttachObjectToVehicle(C.int(objectid), C.int(vehicleid), C.float(fOffsetX), C.float(fOffsetY), C.float(fOffsetZ), C.float(fRotX), C.float(fRotY), C.float(fRotZ)))

@@ -4560,6 +4560,12 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
 
 /**
  * \ingroup natives
+ * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateDynamicObject on SA-MP Wiki</a>
+ */
+SAMPGDK_NATIVE(int, CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId, int interiorId, int playerId, float StreamDistance, int style, int areaId, int priority));
+
+/**
+ * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/AttachObjectToVehicle">AttachObjectToVehicle on SA-MP Wiki</a>
  */
 SAMPGDK_NATIVE(bool, AttachObjectToVehicle(int objectid, int vehicleid, float fOffsetX, float fOffsetY, float fOffsetZ, float fRotX, float fRotY, float fRotZ));
@@ -4796,6 +4802,11 @@ inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX,
     return sampgdk_CreateDynamicObject(modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
 }
 
+inline int CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId = -1, int interiorId = -1, int playerId = -1, float StreamDistance = 300.0, int style = MAPICON_LOCAL, int areaId = -1, int priority = 0)
+{
+    return sampgdk_CreateDynamicMapIcon(x, y, z, type, color, worldId, interiorId, playerId, StreamDistance, style, areaId, priority);
+}
+
 inline bool AttachObjectToVehicle(int objectid, int vehicleid, float fOffsetX, float fOffsetY, float fOffsetZ, float fRotX, float fRotY, float fRotZ)
 {
     return sampgdk_AttachObjectToVehicle(objectid, vehicleid, fOffsetX, fOffsetY, fOffsetZ, fRotX, fRotY, fRotZ);
@@ -4985,11 +4996,14 @@ inline bool SetObjectsDefaultCameraCol(bool disable)
 
 #else /* SAMPGDK_CPP_WRAPPERS && !IN_SAMPGDK */
 
-#undef CreateObject
-#define CreateObject sampgdk_CreateObject
+#undef CreateDynamicMapIcon
+#define CreateDynamicMapIcon sampgdk_CreateDynamicMapIcon
 
 #undef CreateDynamicObject
 #define CreateDynamicObject sampgdk_CreateDynamicObject
+
+#undef CreateObject
+#define CreateObject sampgdk_CreateObject
 
 #undef AttachObjectToVehicle
 #define AttachObjectToVehicle sampgdk_AttachObjectToVehicle

@@ -7248,6 +7248,29 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
   return (int)(retval);
 }
 
+SAMPGDK_NATIVE(int, CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId, int interiorId, int playerId, float StreamDistance, int style, int areaId, int priority)) {
+  static AMX_NATIVE native;
+  cell retval;
+  cell params[13];
+  sampgdk_log_debug("CreateDynamicMapIcon(%f, %f, %f, %d, %d, %d, %d, %d, %f, %d, %d, %d)", x, y, z, type, color, worldId, interiorId, playerId, StreamDistance, style, areaId, priority);
+  native = sampgdk_native_find_flexible("CreateDynamicMapIcon", native);
+  params[0] = 12 * sizeof(cell);
+  params[1] = amx_ftoc(x);
+  params[2] = amx_ftoc(y);
+  params[3] = amx_ftoc(z);
+  params[4] = amx_ftoc(type);
+  params[5] = amx_ftoc(color);
+  params[6] = amx_ftoc(worldId);
+  params[7] = amx_ftoc(interiorId);
+  params[8] = amx_ftoc(playerId);
+  params[9] = amx_ftoc(StreamDistance);
+  params[10] = amx_ftoc(style);
+  params[11] = amx_ftoc(areaId);
+  params[12] = amx_ftoc(priority);
+  retval = native(sampgdk_fakeamx_amx(), params);
+  return (int)(retval);
+}
+
 SAMPGDK_NATIVE(bool, AttachObjectToVehicle(int objectid, int vehicleid, float fOffsetX, float fOffsetY, float fOffsetZ, float fRotX, float fRotY, float fRotZ)) {
   static AMX_NATIVE native;
   cell retval;
