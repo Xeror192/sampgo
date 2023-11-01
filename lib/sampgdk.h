@@ -4554,9 +4554,9 @@ SAMPGDK_NATIVE(int, CreateObject(int modelid, float x, float y, float z, float r
 
 /**
  * \ingroup natives
- * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateObject on SA-MP Wiki</a>
+ * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateDynamicObject on SA-MP Wiki</a>
  */
-SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, float DrawDistance));
+SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, int worldId, int interiorId, int playerId, float StreamDistance, float DrawDistance, int areaId, int priority));
 
 /**
  * \ingroup natives
@@ -4791,9 +4791,9 @@ inline int CreateObject(int modelid, float x, float y, float z, float rX, float 
     return sampgdk_CreateObject(modelid, x, y, z, rX, rY, rZ, DrawDistance);
 }
 
-inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, float DrawDistance = 0.0)
+inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, int worldId = -1, int interiorId = -1, int playerId = -1, float StreamDistance = 300.0, float DrawDistance = 300.0, int areaId = -1, int priority = 0)
 {
-    return sampgdk_CreateObject(modelid, x, y, z, rX, rY, rZ, DrawDistance);
+    return CreateDynamicObject(modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
 }
 
 inline bool AttachObjectToVehicle(int objectid, int vehicleid, float fOffsetX, float fOffsetY, float fOffsetZ, float fRotX, float fRotY, float fRotZ)

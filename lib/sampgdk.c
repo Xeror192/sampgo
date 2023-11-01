@@ -7223,7 +7223,7 @@ SAMPGDK_NATIVE(int, CreateObject(int modelid, float x, float y, float z, float r
   return (int)(retval);
 }
 
-SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, worldId int, interiorId int, playerId int, float StreamDistance, float DrawDistance, areaId int, priority int)) {
+SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, int worldId, int interiorId, int playerId, float StreamDistance, float DrawDistance, int areaId, int priority)) {
   static AMX_NATIVE native;
   cell retval;
   cell params[15];
