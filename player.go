@@ -37,7 +37,22 @@ func (p *Player) SetName(name string) error {
 }
 
 // SendMessage allows you to send a player a message.
-func (p *Player) SendMessage(colour int64, msg string) error {
+func (p *Player) SendMessage(colour string, msg string) error {
+	if len(msg) < 1 {
+		return fmt.Errorf("msg too short")
+	}
+	if len(msg) > 144 {
+		return fmt.Errorf("message too long")
+	}
+
+	if !SendClientMessageCustom(p.ID, colour, msg) {
+		return fmt.Errorf("the player is not connected")
+	}
+	return nil
+}
+
+// SendMessage allows you to send a player a message.
+func (p *Player) SendMessageOld(colour int, msg string) error {
 	if len(msg) < 1 {
 		return fmt.Errorf("msg too short")
 	}

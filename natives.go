@@ -1365,7 +1365,7 @@ func SendClientMessage(playerid, color int, message string) bool {
 }
 
 // For documentation, please visit https://open.mp/docs/scripting/functions/SendClientMessage
-func SendClientMessageCustom(playerid, color string, message string) bool {
+func SendClientMessageCustom(playerid int, color string, message string) bool {
 	csmessage := C.CString(message)
 	defer C.free(unsafe.Pointer(csmessage))
 	return bool(C.SendClientMessage(C.int(playerid), C.int(util.HexToInt(color)), C.nonConstToConst(csmessage)))
