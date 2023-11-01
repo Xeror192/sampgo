@@ -7229,7 +7229,7 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
   cell params[15];
   sampgdk_log_debug("CreateDynamicObject(%d, %f, %f, %f, %f, %f, %f, %d, %d, %d, %f, %f, %d, %d)", modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
   native = sampgdk_native_find_flexible("CreateDynamicObject", native);
-  params[0] = 8 * sizeof(cell);
+  params[0] = 14 * sizeof(cell);
   params[1] = (cell)modelid;
   params[2] = amx_ftoc(x);
   params[3] = amx_ftoc(y);
