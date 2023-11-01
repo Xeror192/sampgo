@@ -4793,7 +4793,7 @@ inline int CreateObject(int modelid, float x, float y, float z, float rX, float 
 
 inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, int worldId = -1, int interiorId = -1, int playerId = -1, float StreamDistance = 300.0, float DrawDistance = 300.0, int areaId = -1, int priority = 0)
 {
-    return CreateDynamicObject(modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
+    return sampgdk_CreateDynamicObject(modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
 }
 
 inline bool AttachObjectToVehicle(int objectid, int vehicleid, float fOffsetX, float fOffsetY, float fOffsetZ, float fRotX, float fRotY, float fRotZ)
