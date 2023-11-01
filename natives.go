@@ -19,7 +19,10 @@ package sampgo
 */
 import "C"
 
-import "unsafe"
+import (
+	"github.com/Xeror192/sampgo/util"
+	"unsafe"
+)
 
 // For documentation, please visit https://open.mp/docs/scripting/functions/CreateActor
 func CreateActor(modelid int, x, y, z, rotation float32) int {
@@ -1359,6 +1362,13 @@ func SendClientMessage(playerid, color int, message string) bool {
 	csmessage := C.CString(message)
 	defer C.free(unsafe.Pointer(csmessage))
 	return bool(C.SendClientMessage(C.int(playerid), C.int(color), C.nonConstToConst(csmessage)))
+}
+
+// For documentation, please visit https://open.mp/docs/scripting/functions/SendClientMessage
+func SendClientMessageCustom(playerid, color string, message string) bool {
+	csmessage := C.CString(message)
+	defer C.free(unsafe.Pointer(csmessage))
+	return bool(C.SendClientMessage(C.int(playerid), C.int(util.HexToInt(color)), C.nonConstToConst(csmessage)))
 }
 
 // For documentation, please visit https://open.mp/docs/scripting/functions/SendClientMessageToAll
