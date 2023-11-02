@@ -94,7 +94,12 @@ func (p *Player) Spawn() error {
 }
 
 func (p *Player) ShowDialog(dialogid, style int, caption, info, button1, button2 string) error {
-	if !ShowPlayerDialog(p.ID, dialogid, style, caption, info, button1, button2) {
+	winCaption := charset.Cp1251RunesToBytes([]rune(caption))
+	winInfo := charset.Cp1251RunesToBytes([]rune(info))
+	winButton1 := charset.Cp1251RunesToBytes([]rune(button1))
+	winButton2 := charset.Cp1251RunesToBytes([]rune(button2))
+
+	if !ShowPlayerDialog(p.ID, dialogid, style, string(winCaption), string(winInfo), string(winButton1), string(winButton2)) {
 		return fmt.Errorf("couldn't show dialog")
 	}
 	return nil
