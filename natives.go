@@ -740,6 +740,13 @@ func SetPlayerChatBubble(playerid int, text string, color int, drawdistance floa
 	return bool(C.SetPlayerChatBubble(C.int(playerid), C.nonConstToConst(cstext), C.int(color), C.float(drawdistance), C.int(expiretime)))
 }
 
+// For documentation, please visit https://open.mp/docs/scripting/functions/SetPlayerChatBubble
+func SetPlayerChatBubbleCustom(playerid int, text string, color string, drawdistance float32, expiretime int) bool {
+	cstext := C.CString(text)
+	defer C.free(unsafe.Pointer(cstext))
+	return bool(C.SetPlayerChatBubble(C.int(playerid), C.nonConstToConst(cstext), C.int(util.HexToInt(color)), C.float(drawdistance), C.int(expiretime)))
+}
+
 // For documentation, please visit https://open.mp/docs/scripting/functions/PutPlayerInVehicle
 func PutPlayerInVehicle(playerid, vehicleid, seatid int) bool {
 	return bool(C.PutPlayerInVehicle(C.int(playerid), C.int(vehicleid), C.int(seatid)))

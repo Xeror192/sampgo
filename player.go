@@ -53,6 +53,20 @@ func (p *Player) SendMessage(colour string, msg string) error {
 	return nil
 }
 
+// SetPlayerChatBubble allows you to send a player a message.
+func (p *Player) SetChatBubble(colour string, msg string, drawDistance float32, expireTime int) error {
+	if len(msg) < 1 {
+		return fmt.Errorf("msg too short")
+	}
+	if len(msg) > 144 {
+		return fmt.Errorf("message too long")
+	}
+	win := charset.Cp1251RunesToBytes([]rune(msg))
+
+	SetPlayerChatBubbleCustom(p.ID, string(win), colour, drawDistance, expireTime)
+	return nil
+}
+
 // SendMessage allows you to send a player a message.
 func (p *Player) SendMessageOld(colour int, msg string) error {
 	if len(msg) < 1 {
