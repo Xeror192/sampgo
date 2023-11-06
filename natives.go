@@ -21,6 +21,7 @@ import "C"
 
 import (
 	"github.com/Xeror192/sampgo/util"
+	"github.com/gelsrc/go-charset"
 	"unsafe"
 )
 
@@ -2301,7 +2302,8 @@ func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId, interiorId, 
 
 // For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
 func CreateDynamic3DTextLabel(text string, color string, x float32, y float32, z float32, drawDistance float32, attachPlayer int, attachVehicle int, testlos bool, worldId int, interiorId int, playerId int, streamDistance float32, areaId int, priority int) int {
-	cstext := C.CString(text)
+	win := charset.Cp1251RunesToBytes([]rune(text))
+	cstext := C.CString(win)
 	defer C.free(unsafe.Pointer(cstext))
 
 	return int(C.CreateDynamic3DTextLabel(
