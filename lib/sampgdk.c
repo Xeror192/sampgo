@@ -6065,6 +6065,7 @@ typedef bool (SAMPGDK_CALLBACK_CALL *OnPlayerLeaveArea_callback)(int playerid, i
 static bool _OnPlayerLeaveArea(AMX *amx, void *callback, cell *retval) {
   bool retval_;
   int playerid;
+  int areaId;
   sampgdk_param_get_cell(amx, 0, (cell *)&playerid);
   sampgdk_param_get_cell(amx, 1, (cell *)&areaId);
   sampgdk_log_debug("OnPlayerLeaveArea(%d, %d)", playerid, areaId);
