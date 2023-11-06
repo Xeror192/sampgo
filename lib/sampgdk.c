@@ -7248,6 +7248,25 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
   return (int)(retval);
 }
 
+SAMPGDK_NATIVE(int, CreateDynamicSphere(float x, float y, float z, float size, int worldId, int interiorId, int playerId, int priority)) {
+  static AMX_NATIVE native;
+  cell retval;
+  cell params[9];
+  sampgdk_log_debug("CreateDynamicSphere(%f, %f, %f, %f, %d, %d, %d, %d)", x, y, z, size, worldId, interiorId, playerId, priority);
+  native = sampgdk_native_find_flexible("CreateDynamicSphere", native);
+  params[0] = 8 * sizeof(cell);
+  params[1] = amx_ftoc(x);
+  params[2] = amx_ftoc(y);
+  params[3] = amx_ftoc(z);
+  params[4] = amx_ftoc(size);
+  params[5] = (cell) worldId;
+  params[6] = (cell) interiorId;
+  params[7] = (cell) playerId;
+  params[8] = (cell) priority;
+  retval = native(sampgdk_fakeamx_amx(), params);
+  return (int)(retval);
+}
+
 SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char * text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, bool testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority)) {
   static AMX_NATIVE native;
   cell retval;
