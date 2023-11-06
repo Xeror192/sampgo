@@ -6061,6 +6061,20 @@ static bool _OnPlayerConnect(AMX *amx, void *callback, cell *retval) {
   return !!retval_ != false;
 }
 
+typedef bool (SAMPGDK_CALLBACK_CALL *OnPlayerLeaveArea_callback)(int playerid, int areaId);
+static bool _OnPlayerLeaveArea(AMX *amx, void *callback, cell *retval) {
+  bool retval_;
+  int playerid;
+  sampgdk_param_get_cell(amx, 0, (cell *)&playerid);
+  sampgdk_param_get_cell(amx, 1, (cell *)&areaId);
+  sampgdk_log_debug("OnPlayerLeaveArea(%d, %d)", playerid, areaId);
+  retval_ = ((OnPlayerLeaveArea_callback)callback)(playerid, areaId);
+  if (retval != NULL) {
+    *retval = (cell)retval_;
+  }
+  return !!retval_ != false;
+}
+
 typedef bool (SAMPGDK_CALLBACK_CALL *OnPlayerDisconnect_callback)(int playerid, int reason);
 static bool _OnPlayerDisconnect(AMX *amx, void *callback, cell *retval) {
   bool retval_;
@@ -7018,6 +7032,9 @@ SAMPGDK_MODULE_INIT(a_samp) {
   if ((error = sampgdk_callback_register("OnPlayerConnect", _OnPlayerConnect)) < 0) {
     return error;
   }
+  if ((error = sampgdk_callback_register("OnPlayerLeaveArea", _OnPlayerLeaveArea)) < 0) {
+    return error;
+  }
   if ((error = sampgdk_callback_register("OnPlayerCommandText", _OnPlayerCommandText)) < 0) {
     return error;
   }
@@ -7105,6 +7122,7 @@ SAMPGDK_MODULE_CLEANUP(a_samp) {
   sampgdk_callback_unregister("OnPlayerDisconnect");
   sampgdk_callback_unregister("OnPlayerDeath");
   sampgdk_callback_unregister("OnPlayerConnect");
+  sampgdk_callback_unregister("OnPlayerLeaveArea");
   sampgdk_callback_unregister("OnPlayerCommandText");
   sampgdk_callback_unregister("OnPlayerClickTextDraw");
   sampgdk_callback_unregister("OnPlayerClickPlayerTextDraw");

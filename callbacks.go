@@ -127,6 +127,20 @@ func onPlayerConnect(playerid C.int) bool {
 	return fn(Player{ID: int(playerid)})
 }
 
+//export onPlayerLeaveArea
+func onPlayerLeaveArea(playerid C.int, areaId C.int) bool {
+	evt, ok := events["playerLeaveArea"]
+	if !ok {
+		return false
+	}
+
+	fn, ok := evt.Handler.(func(Player, int) bool)
+	if !ok {
+		return false
+	}
+	return fn(Player{ID: int(playerid)}, int(areaId))
+}
+
 //export onPlayerDisconnect
 func onPlayerDisconnect(playerid C.int, reason C.int) bool {
 	evt, ok := events["playerDisconnect"]

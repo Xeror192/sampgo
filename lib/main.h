@@ -18,6 +18,7 @@ extern bool goModeInit();
 extern bool goModeExit();
 
 extern bool onPlayerConnect(int playerid);
+extern bool onPlayerLeaveArea(int playerid, int areaId);
 extern bool onPlayerDisconnect(int playerid, int reason);
 
 extern bool onPlayerSpawn(int playerid);

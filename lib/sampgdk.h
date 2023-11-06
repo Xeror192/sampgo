@@ -4149,6 +4149,12 @@ SAMPGDK_CALLBACK(bool, OnPlayerConnect(int playerid));
 
 /**
  * \ingroup callbacks
+ * \see <a href="http://wiki.sa-mp.com/wiki/OnPlayerLeaveArea">OnPlayerLeaveArea on SA-MP Wiki</a>
+ */
+SAMPGDK_CALLBACK(bool, OnPlayerLeaveArea(int playerid, int areaId));
+
+/**
+ * \ingroup callbacks
  * \see <a href="http://wiki.sa-mp.com/wiki/OnPlayerDisconnect">OnPlayerDisconnect on SA-MP Wiki</a>
  */
 SAMPGDK_CALLBACK(bool, OnPlayerDisconnect(int playerid, int reason));
