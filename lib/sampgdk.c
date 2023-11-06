@@ -7273,6 +7273,7 @@ SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float 
   params[14] = amx_ftoc(areaId);
   params[15] = amx_ftoc(priority);
   retval = native(sampgdk_fakeamx_amx(), params);
+  sampgdk_fakeamx_pop(text_);
   return (int)(retval);
 }
 
