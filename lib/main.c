@@ -81,16 +81,6 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerConnect(int playerid)
 
 /**
  * \ingroup callbacks
- * \see <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect">OnPlayerConnect on SA-MP Wiki</a>
- */
-PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerLeaveArea(int playerid, int areaId)
-{
-    onPlayerLeaveArea(playerid, areaId);
-    return true;
-}
-
-/**
- * \ingroup callbacks
  * \see <a href="http://wiki.sa-mp.com/wiki/OnPlayerDisconnect">OnPlayerDisconnect on SA-MP Wiki</a>
  */
 PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerDisconnect(int playerid, int reason)
