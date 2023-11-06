@@ -4562,7 +4562,7 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
  * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateDynamic3DTextLabel on SA-MP Wiki</a>
  */
-SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, bool testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority));
+SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char * text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, bool testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority));
 
 /**
  * \ingroup natives

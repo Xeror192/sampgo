@@ -7248,13 +7248,13 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
   return (int)(retval);
 }
 
-SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, bool testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority)) {
+SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char * text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, bool testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority)) {
   static AMX_NATIVE native;
   cell retval;
   cell params[16];
   cell text_;
   sampgdk_fakeamx_push_string(text, NULL, &text_);
-  sampgdk_log_debug("CreateDynamic3DTextLabel(%s, %d, %f, %f, %f, %f, %d, %d, %d, %d, %d, %d, %f, %d, %d)", text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, testlos, worldId, interiorId, playerId, streamDistance, areaId, priority);
+  sampgdk_log_debug("CreateDynamic3DTextLabel(\"%s\", %d, %f, %f, %f, %f, %d, %d, %d, %d, %d, %d, %f, %d, %d)", text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, testlos, worldId, interiorId, playerId, streamDistance, areaId, priority);
   native = sampgdk_native_find_flexible("CreateDynamic3DTextLabel", native);
   params[0] = 15 * sizeof(cell);
   params[1] = text_;
