@@ -4560,6 +4560,12 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
 
 /**
  * \ingroup natives
+ * \see <a href="http://wiki.sa-mp.com/wiki/IsPlayerInDynamicArea">IsPlayerInDynamicArea on SA-MP Wiki</a>
+ */
+SAMPGDK_NATIVE(int, IsPlayerInDynamicArea(int playerId, int areaId, int recheck));
+
+/**
+ * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateDynamicSphere on SA-MP Wiki</a>
  */
 SAMPGDK_NATIVE(int, CreateDynamicSphere(float x, float y, float z, float size, int worldId, int interiorId, int playerId, int priority));
@@ -4819,6 +4825,11 @@ inline int CreateDynamicSphere(float x, float y, float z, float size, int worldI
     return sampgdk_CreateDynamicSphere(x, y, z, size, worldId, interiorId, playerId, priority);
 }
 
+inline int IsPlayerInDynamicArea(int playerId, int areaId, int recheck = 0)
+{
+    return sampgdk_IsPlayerInDynamicArea(playerId, areaId ,recheck);
+}
+
 inline int CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer = INVALID_PLAYER_ID, int attachVehicle = INVALID_VEHICLE_ID, bool testlos = false, int worldId = -1, int interiorId = -1, int playerId = -1, float streamDistance = 200.0, int areaId = -1, int priority = 0)
 {
     return sampgdk_CreateDynamic3DTextLabel(text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, testlos, worldId, interiorId, playerId, streamDistance, areaId, priority);
@@ -5026,6 +5037,9 @@ inline bool SetObjectsDefaultCameraCol(bool disable)
 
 #undef CreateDynamicSphere
 #define CreateDynamicSphere sampgdk_CreateDynamicSphere
+
+#undef IsPlayerInDynamicArea
+#define IsPlayerInDynamicArea sampgdk_IsPlayerInDynamicArea
 
 #undef CreateDynamic3DTextLabel
 #define CreateDynamic3DTextLabel sampgdk_CreateDynamic3DTextLabel
