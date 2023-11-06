@@ -4562,7 +4562,7 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
  * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/IsPlayerInDynamicArea">IsPlayerInDynamicArea on SA-MP Wiki</a>
  */
-SAMPGDK_NATIVE(int, IsPlayerInDynamicArea(int playerId, int areaId, int recheck));
+SAMPGDK_NATIVE(bool, IsPlayerInDynamicArea(int playerId, int areaId, int recheck));
 
 /**
  * \ingroup natives
