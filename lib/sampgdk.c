@@ -7267,7 +7267,7 @@ SAMPGDK_NATIVE(int, CreateDynamicSphere(float x, float y, float z, float size, i
   return (int)(retval);
 }
 
-SAMPGDK_NATIVE(int, IsPlayerInDynamicArea(int playerId, int areaId, int recheck)) {
+SAMPGDK_NATIVE(bool, IsPlayerInDynamicArea(int playerId, int areaId, int recheck)) {
   static AMX_NATIVE native;
   cell retval;
   cell params[4];
