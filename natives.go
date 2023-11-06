@@ -2300,6 +2300,27 @@ func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId, interiorId, 
 }
 
 // For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
+func CreateDynamic3DTextLabel(text string, color string, x float32, y float32, z float32, drawDistance float32, attachPlayer int, attachVehicle int, testlos int, worldId int, interiorId int, playerId int, streamDistance float32, areaId int, priority int) int {
+	return int(C.CreateDynamic3DTextLabel(
+		C.CString(text),
+		C.int(util.HexToInt(color)),
+		C.float(x),
+		C.float(y),
+		C.float(z),
+		C.float(drawDistance),
+		C.int(attachPlayer),
+		C.int(attachVehicle),
+		C.int(testlos),
+		C.int(worldId),
+		C.int(interiorId),
+		C.int(playerId),
+		C.float(streamDistance),
+		C.int(areaId),
+		C.int(priority),
+	))
+}
+
+// For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
 func CreateDynamicMapIcon(x float32, y float32, z float32, iconType int, color int, worldId int, interiorId int, playerId int, StreamDistance float32, style int, areaId int, priority int) int {
 	return int(C.CreateDynamicMapIcon(
 		C.float(x),
