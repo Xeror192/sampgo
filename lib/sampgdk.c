@@ -7254,7 +7254,6 @@ SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float 
   cell params[14];
   cell text_;
   sampgdk_fakeamx_push_string(text, NULL, &text_);
-
   sampgdk_log_debug("CreateDynamic3DTextLabel(%s, %d, %f, %f, %f, %f, %d, %d, %d, %d, %d, %f, %d, %d)", text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, worldId, interiorId, playerId, streamDistance, areaId, priority);
   native = sampgdk_native_find_flexible("CreateDynamic3DTextLabel", native);
   params[0] = 14 * sizeof(cell);
