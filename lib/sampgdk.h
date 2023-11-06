@@ -4825,7 +4825,7 @@ inline int CreateDynamicSphere(float x, float y, float z, float size, int worldI
     return sampgdk_CreateDynamicSphere(x, y, z, size, worldId, interiorId, playerId, priority);
 }
 
-inline int IsPlayerInDynamicArea(int playerId, int areaId, int recheck = 0)
+inline bool IsPlayerInDynamicArea(int playerId, int areaId, int recheck = 0)
 {
     return sampgdk_IsPlayerInDynamicArea(playerId, areaId ,recheck);
 }
