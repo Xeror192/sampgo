@@ -7248,15 +7248,15 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
   return (int)(retval);
 }
 
-SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority)) {
+SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, int testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority)) {
   static AMX_NATIVE native;
   cell retval;
-  cell params[14];
+  cell params[16];
   cell text_;
   sampgdk_fakeamx_push_string(text, NULL, &text_);
-  sampgdk_log_debug("CreateDynamic3DTextLabel(%s, %d, %f, %f, %f, %f, %d, %d, %d, %d, %d, %f, %d, %d)", text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, worldId, interiorId, playerId, streamDistance, areaId, priority);
+  sampgdk_log_debug("CreateDynamic3DTextLabel(%s, %d, %f, %f, %f, %f, %d, %d, %d, %d, %d, %d, %f, %d, %d)", text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, testlos, worldId, interiorId, playerId, streamDistance, areaId, priority);
   native = sampgdk_native_find_flexible("CreateDynamic3DTextLabel", native);
-  params[0] = 14 * sizeof(cell);
+  params[0] = 15 * sizeof(cell);
   params[1] = text_;
   params[2] = (cell) color;
   params[3] = amx_ftoc(x);
@@ -7265,12 +7265,13 @@ SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float 
   params[6] = amx_ftoc(drawDistance);
   params[7] = amx_ftoc(attachPlayer);
   params[8] = amx_ftoc(attachVehicle);
-  params[9] = amx_ftoc(worldId);
-  params[10] = amx_ftoc(interiorId);
-  params[11] = amx_ftoc(playerId);
-  params[12] = amx_ftoc(streamDistance);
-  params[13] = amx_ftoc(areaId);
-  params[13] = amx_ftoc(priority);
+  params[9] = amx_ftoc(testlos);
+  params[10] = amx_ftoc(worldId);
+  params[11] = amx_ftoc(interiorId);
+  params[12] = amx_ftoc(playerId);
+  params[13] = amx_ftoc(streamDistance);
+  params[14] = amx_ftoc(areaId);
+  params[15] = amx_ftoc(priority);
   retval = native(sampgdk_fakeamx_amx(), params);
   return (int)(retval);
 }

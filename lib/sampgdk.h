@@ -4808,9 +4808,9 @@ inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX,
     return sampgdk_CreateDynamicObject(modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
 }
 
-inline int CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer = INVALID_PLAYER_ID, int attachVehicle = INVALID_VEHICLE_ID, int worldId = -1, int interiorId = -1, int playerId = -1, float streamDistance = 200.0, int areaId = -1, int priority = 0)
+inline int CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer = INVALID_PLAYER_ID, int attachVehicle = INVALID_VEHICLE_ID, int testlos = 0, int worldId = -1, int interiorId = -1, int playerId = -1, float streamDistance = 200.0, int areaId = -1, int priority = 0)
 {
-    return sampgdk_CreateDynamic3DTextLabel(text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, worldId, interiorId, playerId, streamDistance, areaId, priority);
+    return sampgdk_CreateDynamic3DTextLabel(text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, testlos, worldId, interiorId, playerId, streamDistance, areaId, priority);
 }
 
 inline int CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId = -1, int interiorId = -1, int playerId = -1, float StreamDistance = 300.0, int style = MAPICON_LOCAL, int areaId = -1, int priority = 0)
