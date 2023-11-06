@@ -7248,7 +7248,7 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
   return (int)(retval);
 }
 
-SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, int testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority)) {
+SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, bool testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority)) {
   static AMX_NATIVE native;
   cell retval;
   cell params[16];
@@ -7263,15 +7263,15 @@ SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float 
   params[4] = amx_ftoc(y);
   params[5] = amx_ftoc(z);
   params[6] = amx_ftoc(drawDistance);
-  params[7] = amx_ftoc(attachPlayer);
-  params[8] = amx_ftoc(attachVehicle);
-  params[9] = amx_ftoc(testlos);
-  params[10] = amx_ftoc(worldId);
-  params[11] = amx_ftoc(interiorId);
-  params[12] = amx_ftoc(playerId);
+  params[7] = (cell) attachPlayer;
+  params[8] = (cell) attachVehicle;
+  params[9] = (cell) testlos;
+  params[10] = (cell) worldId;
+  params[11] = (cell) interiorId;
+  params[12] = (cell) playerId;
   params[13] = amx_ftoc(streamDistance);
-  params[14] = amx_ftoc(areaId);
-  params[15] = amx_ftoc(priority);
+  params[14] = (cell) areaId;
+  params[15] = (cell) priority;
   retval = native(sampgdk_fakeamx_amx(), params);
   sampgdk_fakeamx_pop(text_);
   return (int)(retval);

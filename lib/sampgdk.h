@@ -4562,7 +4562,7 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
  * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateDynamic3DTextLabel on SA-MP Wiki</a>
  */
-SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, int testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority));
+SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, bool testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority));
 
 /**
  * \ingroup natives
@@ -4808,7 +4808,7 @@ inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX,
     return sampgdk_CreateDynamicObject(modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
 }
 
-inline int CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer = INVALID_PLAYER_ID, int attachVehicle = INVALID_VEHICLE_ID, int testlos = 0, int worldId = -1, int interiorId = -1, int playerId = -1, float streamDistance = 200.0, int areaId = -1, int priority = 0)
+inline int CreateDynamic3DTextLabel(const char* text, int color, float x, float y, float z, float drawDistance, int attachPlayer = INVALID_PLAYER_ID, int attachVehicle = INVALID_VEHICLE_ID, bool testlos = false, int worldId = -1, int interiorId = -1, int playerId = -1, float streamDistance = 200.0, int areaId = -1, int priority = 0)
 {
     return sampgdk_CreateDynamic3DTextLabel(text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, testlos, worldId, interiorId, playerId, streamDistance, areaId, priority);
 }
