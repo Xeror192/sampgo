@@ -2347,7 +2347,7 @@ func CreateDynamicSphere(x float32, y float32, z float32, size float32, worldId 
 		C.float(x),
 		C.float(y),
 		C.float(z),
-		C.size(z),
+		C.float(size),
 		C.int(worldId),
 		C.int(interiorId),
 		C.int(playerId),
