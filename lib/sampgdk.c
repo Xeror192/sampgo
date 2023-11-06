@@ -7278,7 +7278,7 @@ SAMPGDK_NATIVE(int, IsPlayerInDynamicArea(int playerId, int areaId, int recheck)
   params[2] = (cell) areaId;
   params[3] = (cell) recheck;
   retval = native(sampgdk_fakeamx_amx(), params);
-  return (bool)(retval);
+  return !!(retval);
 }
 
 SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char * text, int color, float x, float y, float z, float drawDistance, int attachPlayer, int attachVehicle, bool testlos, int worldId, int interiorId, int playerId, float streamDistance, int areaId, int priority)) {
