@@ -7319,7 +7319,7 @@ SAMPGDK_NATIVE(bool, UpdateDynamic3DTextLabelText(int id, int color, const char 
   sampgdk_log_debug("UpdateDynamic3DTextLabelText(%d, %d, \"%s\")", id, color, text);
   native = sampgdk_native_find_flexible("UpdateDynamic3DTextLabelText", native);
   params[0] = 3 * sizeof(cell);
-  params[1] = (cell) color;
+  params[1] = (cell) id;
   params[2] = (cell) color;
   params[3] = text_;
   retval = native(sampgdk_fakeamx_amx(), params);
