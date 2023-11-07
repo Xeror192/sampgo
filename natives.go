@@ -2326,6 +2326,19 @@ func CreateDynamic3DTextLabel(text string, color string, x float32, y float32, z
 }
 
 // For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
+func UpdateDynamic3DTextLabelText(id int, color string, text string) bool {
+	win := string(charset.Cp1251RunesToBytes([]rune(text)))
+	cstext := C.CString(win)
+	defer C.free(unsafe.Pointer(cstext))
+
+	return bool(C.UpdateDynamic3DTextLabelText(
+		C.int(id),
+		C.int(util.HexToInt(color)),
+		C.nonConstToConst(cstext),
+	))
+}
+
+// For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
 func CreateDynamicMapIcon(x float32, y float32, z float32, iconType int, color int, worldId int, interiorId int, playerId int, StreamDistance float32, style int, areaId int, priority int) int {
 	return int(C.CreateDynamicMapIcon(
 		C.float(x),

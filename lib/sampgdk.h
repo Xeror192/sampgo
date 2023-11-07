@@ -4578,6 +4578,12 @@ SAMPGDK_NATIVE(int, CreateDynamic3DTextLabel(const char * text, int color, float
 
 /**
  * \ingroup natives
+ * \see <a href="http://wiki.sa-mp.com/wiki/UpdateDynamic3DTextLabelText">UpdateDynamic3DTextLabelText on SA-MP Wiki</a>
+ */
+SAMPGDK_NATIVE(bool, UpdateDynamic3DTextLabelText(int id, int color, const char * text));
+
+/**
+ * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateDynamicObject on SA-MP Wiki</a>
  */
 SAMPGDK_NATIVE(int, CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId, int interiorId, int playerId, float StreamDistance, int style, int areaId, int priority));
@@ -4835,6 +4841,11 @@ inline int CreateDynamic3DTextLabel(const char* text, int color, float x, float 
     return sampgdk_CreateDynamic3DTextLabel(text, color, x, y, z, drawDistance, attachPlayer, attachVehicle, testlos, worldId, interiorId, playerId, streamDistance, areaId, priority);
 }
 
+inline bool UpdateDynamic3DTextLabelText(int id, int color, const char* text)
+{
+    return sampgdk_UpdateDynamic3DTextLabelText(id, color, text);
+}
+
 inline int CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId = -1, int interiorId = -1, int playerId = -1, float StreamDistance = 300.0, int style = MAPICON_LOCAL, int areaId = -1, int priority = 0)
 {
     return sampgdk_CreateDynamicMapIcon(x, y, z, type, color, worldId, interiorId, playerId, StreamDistance, style, areaId, priority);
@@ -5043,6 +5054,9 @@ inline bool SetObjectsDefaultCameraCol(bool disable)
 
 #undef CreateDynamic3DTextLabel
 #define CreateDynamic3DTextLabel sampgdk_CreateDynamic3DTextLabel
+
+#undef UpdateDynamic3DTextLabelText
+#define UpdateDynamic3DTextLabelText sampgdk_UpdateDynamic3DTextLabelText
 
 #undef CreateObject
 #define CreateObject sampgdk_CreateObject
