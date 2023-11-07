@@ -4584,6 +4584,12 @@ SAMPGDK_NATIVE(bool, UpdateDynamic3DTextLabelText(int id, int color, const char 
 
 /**
  * \ingroup natives
+ * \see <a href="http://wiki.sa-mp.com/wiki/DestroyDynamic3DTextLabel">DestroyDynamic3DTextLabel on SA-MP Wiki</a>
+ */
+SAMPGDK_NATIVE(bool, DestroyDynamic3DTextLabel(int id));
+
+/**
+ * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateDynamicObject on SA-MP Wiki</a>
  */
 SAMPGDK_NATIVE(int, CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId, int interiorId, int playerId, float StreamDistance, int style, int areaId, int priority));
@@ -4846,6 +4852,11 @@ inline bool UpdateDynamic3DTextLabelText(int id, int color, const char* text)
     return sampgdk_UpdateDynamic3DTextLabelText(id, color, text);
 }
 
+inline bool DestroyDynamic3DTextLabel(int id)
+{
+    return sampgdk_DestroyDynamic3DTextLabel(id);
+}
+
 inline int CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId = -1, int interiorId = -1, int playerId = -1, float StreamDistance = 300.0, int style = MAPICON_LOCAL, int areaId = -1, int priority = 0)
 {
     return sampgdk_CreateDynamicMapIcon(x, y, z, type, color, worldId, interiorId, playerId, StreamDistance, style, areaId, priority);
@@ -5057,6 +5068,9 @@ inline bool SetObjectsDefaultCameraCol(bool disable)
 
 #undef UpdateDynamic3DTextLabelText
 #define UpdateDynamic3DTextLabelText sampgdk_UpdateDynamic3DTextLabelText
+
+#undef DestroyDynamic3DTextLabel
+#define DestroyDynamic3DTextLabel sampgdk_DestroyDynamic3DTextLabel
 
 #undef CreateObject
 #define CreateObject sampgdk_CreateObject

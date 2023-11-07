@@ -2339,6 +2339,13 @@ func UpdateDynamic3DTextLabelText(id int, color string, text string) bool {
 }
 
 // For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
+func DestroyDynamic3DTextLabel(id int) bool {
+	return bool(C.DestroyDynamic3DTextLabel(
+		C.int(id),
+	))
+}
+
+// For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
 func CreateDynamicMapIcon(x float32, y float32, z float32, iconType int, color int, worldId int, interiorId int, playerId int, StreamDistance float32, style int, areaId int, priority int) int {
 	return int(C.CreateDynamicMapIcon(
 		C.float(x),

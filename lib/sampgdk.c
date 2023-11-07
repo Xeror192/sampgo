@@ -7327,6 +7327,19 @@ SAMPGDK_NATIVE(bool, UpdateDynamic3DTextLabelText(int id, int color, const char 
   return !!(retval);
 }
 
+SAMPGDK_NATIVE(bool, DestroyDynamic3DTextLabel(int id)) {
+  static AMX_NATIVE native;
+  cell retval;
+  cell params[2];
+  sampgdk_fakeamx_push_string(text, NULL, &text_);
+  sampgdk_log_debug("DestroyDynamic3DTextLabel(%d)", id);
+  native = sampgdk_native_find_flexible("DestroyDynamic3DTextLabel", native);
+  params[0] = 1 * sizeof(cell);
+  params[1] = (cell) id;
+  retval = native(sampgdk_fakeamx_amx(), params);
+  return !!(retval);
+}
+
 SAMPGDK_NATIVE(int, CreateDynamicMapIcon(float x, float y, float z, int type, int color, int worldId, int interiorId, int playerId, float StreamDistance, int style, int areaId, int priority)) {
   static AMX_NATIVE native;
   cell retval;
