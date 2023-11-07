@@ -7331,7 +7331,6 @@ SAMPGDK_NATIVE(bool, DestroyDynamic3DTextLabel(int id)) {
   static AMX_NATIVE native;
   cell retval;
   cell params[2];
-  sampgdk_fakeamx_push_string(text, NULL, &text_);
   sampgdk_log_debug("DestroyDynamic3DTextLabel(%d)", id);
   native = sampgdk_native_find_flexible("DestroyDynamic3DTextLabel", native);
   params[0] = 1 * sizeof(cell);
