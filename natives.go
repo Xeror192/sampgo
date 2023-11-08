@@ -2301,6 +2301,27 @@ func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId int, interior
 }
 
 // For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
+func AttachDynamicObjectToVehicle(objectId int, vehicleId int, x float32, y float32, z float32, rX float32, rY float32, rZ float32) bool {
+	return bool(C.AttachDynamicObjectToVehicle(
+		C.int(objectId),
+		C.int(vehicleId),
+		C.float(x),
+		C.float(y),
+		C.float(z),
+		C.float(rX),
+		C.float(rY),
+		C.float(rZ),
+	))
+}
+
+// For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
+func DestroyDynamicObject(objectId int) bool {
+	return bool(C.DestroyDynamicObject(
+		C.int(objectId),
+	))
+}
+
+// For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
 func CreateDynamic3DTextLabel(text string, color string, x float32, y float32, z float32, drawDistance float32, attachPlayer int, attachVehicle int, testlos bool, worldId int, interiorId int, playerId int, streamDistance float32, areaId int, priority int) int {
 	win := string(charset.Cp1251RunesToBytes([]rune(text)))
 	cstext := C.CString(win)

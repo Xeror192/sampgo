@@ -4554,9 +4554,21 @@ SAMPGDK_NATIVE(int, CreateObject(int modelid, float x, float y, float z, float r
 
 /**
  * \ingroup natives
- * \see <a href="http://wiki.sa-mp.com/wiki/CreateObject">CreateDynamicObject on SA-MP Wiki</a>
+ * \see <a href="http://wiki.sa-mp.com/wiki/CreateDynamicObject">CreateDynamicObject on SA-MP Wiki</a>
  */
 SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, float rX, float rY, float rZ, int worldId, int interiorId, int playerId, float StreamDistance, float DrawDistance, int areaId, int priority));
+
+/**
+ * \ingroup natives
+ * \see <a href="http://wiki.sa-mp.com/wiki/AttachDynamicObjectToVehicle">AttachDynamicObjectToVehicle on SA-MP Wiki</a>
+ */
+SAMPGDK_NATIVE(bool, AttachDynamicObjectToVehicle(int objectId, int vehicleId, float x, float y, float z, float rX, float rY, float rZ));
+
+/**
+ * \ingroup natives
+ * \see <a href="http://wiki.sa-mp.com/wiki/DestroyDynamicObject">DestroyDynamicObject on SA-MP Wiki</a>
+ */
+SAMPGDK_NATIVE(bool, DestroyDynamicObject(int objectId));
 
 /**
  * \ingroup natives
@@ -4832,6 +4844,16 @@ inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX,
     return sampgdk_CreateDynamicObject(modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
 }
 
+inline bool AttachDynamicObjectToVehicle(int objectId, int vehicleId, float x, float y, float z, float rX, float rY, float rZ)
+{
+    return sampgdk_AttachDynamicObjectToVehicle(objectId, vehicleId, x, y, z, rX, rY, rZ);
+}
+
+inline bool DestroyDynamicObject(int objectId)
+{
+    return sampgdk_DestroyDynamicObject(objectId);
+}
+
 inline int CreateDynamicSphere(float x, float y, float z, float size, int worldId = -1, int interiorId = -1, int playerId = -1, int priority = 0)
 {
     return sampgdk_CreateDynamicSphere(x, y, z, size, worldId, interiorId, playerId, priority);
@@ -5056,6 +5078,12 @@ inline bool SetObjectsDefaultCameraCol(bool disable)
 
 #undef CreateDynamicObject
 #define CreateDynamicObject sampgdk_CreateDynamicObject
+
+#undef AttachDynamicObjectToVehicle
+#define AttachDynamicObjectToVehicle sampgdk_AttachDynamicObjectToVehicle
+
+#undef DestroyDynamicObject
+#define DestroyDynamicObject sampgdk_DestroyDynamicObject
 
 #undef CreateDynamicSphere
 #define CreateDynamicSphere sampgdk_CreateDynamicSphere
