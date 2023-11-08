@@ -7278,18 +7278,18 @@ SAMPGDK_NATIVE(bool, SetDynamicObjectMaterialText(int objectId, int materialInde
 SAMPGDK_NATIVE(bool, AttachDynamicObjectToVehicle(int objectId, int vehicleId, float x, float y, float z, float rX, float rY, float rZ)) {
   static AMX_NATIVE native;
   cell retval;
-  cell params[8];
+  cell params[9];
   sampgdk_log_debug("AttachDynamicObjectToVehicle(%d, %d, %f, %f, %f, %f, %f, %f)", objectId, vehicleId, x, y, z, rX, rY, rZ);
   native = sampgdk_native_find_flexible("AttachDynamicObjectToVehicle", native);
-  params[0] = 7 * sizeof(cell);
+  params[0] = 8 * sizeof(cell);
   params[1] = (cell)objectId;
-  params[1] = (cell)vehicleId;
-  params[2] = amx_ftoc(x);
-  params[3] = amx_ftoc(y);
-  params[4] = amx_ftoc(z);
-  params[5] = amx_ftoc(rX);
-  params[6] = amx_ftoc(rY);
-  params[7] = amx_ftoc(rZ);
+  params[2] = (cell)vehicleId;
+  params[3] = amx_ftoc(x);
+  params[4] = amx_ftoc(y);
+  params[5] = amx_ftoc(z);
+  params[6] = amx_ftoc(rX);
+  params[7] = amx_ftoc(rY);
+  params[8] = amx_ftoc(rZ);
   retval = native(sampgdk_fakeamx_amx(), params);
   return !!(retval);
 }
