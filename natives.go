@@ -1965,7 +1965,8 @@ func GetPlayerMenu(playerid int) int {
 
 // For documentation, please visit https://open.mp/docs/scripting/functions/TextDrawCreate
 func TextDrawCreate(x, y float32, text string) int {
-	cstext := C.CString(text)
+	win := string(charset.Cp1251RunesToBytes([]rune(text)))
+	cstext := C.CString(win)
 	defer C.free(unsafe.Pointer(cstext))
 	return int(C.TextDrawCreate(C.float(x), C.float(y), C.nonConstToConst(cstext)))
 }
