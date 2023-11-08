@@ -4560,6 +4560,12 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
 
 /**
  * \ingroup natives
+ * \see <a href="http://wiki.sa-mp.com/wiki/SetDynamicObjectMaterialText">SetDynamicObjectMaterialText on SA-MP Wiki</a>
+ */
+SAMPGDK_NATIVE(bool, SetDynamicObjectMaterialText(int objectId, int materialIndex, const char * text, int materialSize, const char * fontFace, int fontSize, bool bold, int fontColor, int backColor, int textAlignment));
+
+/**
+ * \ingroup natives
  * \see <a href="http://wiki.sa-mp.com/wiki/AttachDynamicObjectToVehicle">AttachDynamicObjectToVehicle on SA-MP Wiki</a>
  */
 SAMPGDK_NATIVE(bool, AttachDynamicObjectToVehicle(int objectId, int vehicleId, float x, float y, float z, float rX, float rY, float rZ));
@@ -4844,6 +4850,11 @@ inline int CreateDynamicObject(int modelid, float x, float y, float z, float rX,
     return sampgdk_CreateDynamicObject(modelid, x, y, z, rX, rY, rZ, worldId, interiorId, playerId, StreamDistance, DrawDistance, areaId, priority);
 }
 
+inline bool SetDynamicObjectMaterialText(int objectId, int materialIndex, const char * text, int materialSize = OBJECT_MATERIAL_SIZE_256x128, const char * fontFace = "Arial", int fontSize = 24, bool bold = true, int fontColor = 0, int backColor = 0, int textAlignment = 0)
+{
+    return sampgdk_SetDynamicObjectMaterialText(objectId, materialIndex, text , materialSize, fontFace, fontSize, bold, fontColor, backColor, textAlignment);
+}
+
 inline bool AttachDynamicObjectToVehicle(int objectId, int vehicleId, float x, float y, float z, float rX, float rY, float rZ)
 {
     return sampgdk_AttachDynamicObjectToVehicle(objectId, vehicleId, x, y, z, rX, rY, rZ);
@@ -5078,6 +5089,9 @@ inline bool SetObjectsDefaultCameraCol(bool disable)
 
 #undef CreateDynamicObject
 #define CreateDynamicObject sampgdk_CreateDynamicObject
+
+#undef SetDynamicObjectMaterialText
+#define SetDynamicObjectMaterialText sampgdk_SetDynamicObjectMaterialText
 
 #undef AttachDynamicObjectToVehicle
 #define AttachDynamicObjectToVehicle sampgdk_AttachDynamicObjectToVehicle

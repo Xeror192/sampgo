@@ -2301,6 +2301,30 @@ func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId int, interior
 }
 
 // For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
+func SetDynamicObjectMaterialText(objectId int, materialIndex int, text string, materialSize int, fontFace string, fontSize int, bold bool, color string, backColor string, textAlignment int) bool {
+	win := string(charset.Cp1251RunesToBytes([]rune(text)))
+	cstext := C.CString(win)
+	defer C.free(unsafe.Pointer(cstext))
+
+	winFontFace := string(charset.Cp1251RunesToBytes([]rune(fontFace)))
+	csFontFace := C.CString(winFontFace)
+	defer C.free(unsafe.Pointer(csFontFace))
+
+	return bool(C.SetDynamicObjectMaterialText(
+		C.int(objectId),
+		C.int(materialIndex),
+		C.nonConstToConst(cstext),
+		C.int(materialSize),
+		C.nonConstToConst(csFontFace),
+		C.int(fontSize),
+		C.bool(bold),
+		C.int(util.HexToInt(color)),
+		C.int(util.HexToInt(backColor)),
+		C.int(textAlignment),
+	))
+}
+
+// For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
 func AttachDynamicObjectToVehicle(objectId int, vehicleId int, x float32, y float32, z float32, rX float32, rY float32, rZ float32) bool {
 	return bool(C.AttachDynamicObjectToVehicle(
 		C.int(objectId),

@@ -7248,6 +7248,33 @@ SAMPGDK_NATIVE(int, CreateDynamicObject(int modelid, float x, float y, float z, 
   return (int)(retval);
 }
 
+SAMPGDK_NATIVE(bool, SetDynamicObjectMaterialText(int objectId, int materialIndex, const char * text, int materialSize, const char * fontFace, int fontSize, bool bold, int fontColor, int backColor, int textAlignment)) {
+  static AMX_NATIVE native;
+  cell retval;
+  cell params[11];
+  cell text_;
+  sampgdk_fakeamx_push_string(text, NULL, &text_);
+  cell fontFace_;
+  sampgdk_fakeamx_push_string(fontFace, NULL, &fontFace_);
+  sampgdk_log_debug("SetDynamicObjectMaterialText(%d, %d, \"%s\", %d, \"%s\", %d , %d , %d , %d , %d)", objectId, materialIndex, text_, materialSize, fontFace_, fontSize, bold, fontColor, backColor, textAlignment);
+  native = sampgdk_native_find_flexible("SetDynamicObjectMaterialText", native);
+  params[0] = 10 * sizeof(cell);
+  params[1] = (cell)objectId;
+  params[2] = (cell)materialIndex;
+  params[3] = text_;
+  params[4] = (cell)materialSize;
+  params[5] = fontFace_;
+  params[6] = (cell)fontSize;
+  params[7] = (cell)bold;
+  params[8] = (cell)fontColor;
+  params[9] = (cell)backColor;
+  params[10] = (cell)textAlignment;
+  retval = native(sampgdk_fakeamx_amx(), params);
+  sampgdk_fakeamx_pop(text_);
+  sampgdk_fakeamx_pop(fontFace_);
+  return !!(retval);
+}
+
 SAMPGDK_NATIVE(bool, AttachDynamicObjectToVehicle(int objectId, int vehicleId, float x, float y, float z, float rX, float rY, float rZ)) {
   static AMX_NATIVE native;
   cell retval;
