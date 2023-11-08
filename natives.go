@@ -2281,7 +2281,7 @@ func CreateObject(modelid int, x, y, z, rX, rY, rZ, DrawDistance float32) int {
 }
 
 // For documentation, please visit https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives
-func CreateDynamicObject(modelid int, x, y, z, rX, rY, rZ, worldId int, interiorId int, playerId int, StreamDistance float32, DrawDistance float32, areaId int, priority int) int {
+func CreateDynamicObject(modelid int, x float32, y float32, z float32, rX float32, rY float32, rZ float32, worldId int, interiorId int, playerId int, StreamDistance float32, DrawDistance float32, areaId int, priority int) int {
 	return int(C.CreateDynamicObject(
 		C.int(modelid),
 		C.float(x),
